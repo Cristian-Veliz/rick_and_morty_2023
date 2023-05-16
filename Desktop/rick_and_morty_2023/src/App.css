@@ -1,0 +1,15 @@
+.App {
+   
+   text-align: center;
+   //background-color: rgb(77, 78, 75);
+   background-image: url('./components/image/fondopag.jpg');
+   background-size: cover;
+   //background-repeat: no-repeat;
+   height: 900px;
+
+   
+  
+
+
+}
+
