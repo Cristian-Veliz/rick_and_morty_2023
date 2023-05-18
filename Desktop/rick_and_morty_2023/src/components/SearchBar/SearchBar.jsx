@@ -1,4 +1,6 @@
 import styles from "./Searchbar.module.css";
+
+
 export default function SearchBar({onSearch}) {
    return (
       <div className={styles.container}>
