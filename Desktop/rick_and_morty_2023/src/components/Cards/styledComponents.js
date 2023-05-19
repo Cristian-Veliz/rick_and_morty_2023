@@ -4,6 +4,7 @@ export const CardsContenedor = styled.div`
 
 display:flex;
 flex-direction: arow;
+flex-wrap: wrap;
 justify-content: center;
 align-content: center;
 align-items: center;

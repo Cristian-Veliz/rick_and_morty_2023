@@ -1,7 +1,7 @@
 import Card from '../card/Card';
 import { CardsContenedor } from './styledComponents';
 
-export default function Cards({characters}) {
+export default function Cards({characters, onClose}) {
    
    return (    
    <CardsContenedor>
@@ -18,7 +18,7 @@ export default function Cards({characters}) {
             gender={gender}
             image={image}
             origin={origin?.name}
-            onClose={() => alert('Emulamos que se cierra la card')}
+            onClose={onClose}
           />
          )
 
