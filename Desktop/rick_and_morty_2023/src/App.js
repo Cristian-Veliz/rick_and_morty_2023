@@ -1,27 +1,34 @@
-import { useState } from 'react';
 import './App.css';
-import Cards from './components/cards/Cards.jsx';
-import Nav from './components/nav/Nav'
 import axios from 'axios';
-//import characters from './data.js';
+import { useState, useEffect } from 'react';
+import {Routes, Route, useLocation, useNavigate} from 'react-router-dom';
+import About from './components/about/About.jsx';
+import Detail from './components/detail/Detail.jsx';
+import Cards from './components/cards/Cards.jsx';
+import Nav from './components/nav/Nav.jsx';
+import Form from './components/form/Form.jsx';
+
 
 
 function App() {
 
    const [characters, setCharacters] = useState([]);
-   //Estado => characteres [{}, {}]
-   const example = {
-      id: 1,
-      name: 'Rick Sanchez',
-      status: 'Alive',
-      species: 'Human',
-      gender: 'Male',
-      origin: {
-         name: 'Earth (C-137)',
-         url: 'https://rickandmortyapi.com/api/location/1',
-      },
-      image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
-   };
+   const[access, setAccess] = useState(false);
+   const EMAIL = 'henry2023@gmail.com';
+   const PASSWORD = 'henry2023';
+
+   const navigate = useNavigate();
+
+   function login(userData) {
+      if (userData.password === PASSWORD && userData.email === EMAIL) {
+         setAccess(true);
+         navigate('/home');
+      }
+   }
+
+   useEffect(() => {
+      !access && navigate('/');
+   }, [access]);
 
 
    const onSearch = id =>{
@@ -36,10 +43,28 @@ function App() {
    const onClose = id => {
       setCharacters(characters.filter(element => element.id !== Number(id)))
    }
+
+   const location = useLocation();
+   //console.log(location)
+
+
    return (
       <div className='App' >
-      <Cards characters={characters} onClose={onClose} />
-      <Nav onSearch={onSearch}/> 
+         {
+            location.pathname !== '/' && <Nav onSearch={onSearch}/>
+            
+            // El && si el 1ro es true retorna el segundo
+
+         }
+      
+      
+      <Routes>
+         <Route path='/' element={<Form login={login}/>}/>
+         <Route path='/home'element={<Cards characters={characters} onClose={onClose} />}/>
+         <Route path='/about' element={<About/>}/>
+         <Route path='/detail/:id' element={<Detail/>}/>
+        
+      </Routes>
       </div>
     );
 }

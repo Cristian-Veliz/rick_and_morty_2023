@@ -9,7 +9,7 @@ justify-content: center;
 align-content: center;
 align-items: center;
 width: 100%;
-margin-top:0%;
+margin-top:1%;
 padding-top: 10px;
 
 align-self: flex-end;

@@ -18,11 +18,11 @@ export default function SearchBar({onSearch}) {
          id= 'search'
          onChange={handleChange} 
          />
-         <button onClick={() => onSearch(id)}>Agregar</button>
+         <button onClick={() => onSearch(id)}>AGREGAR</button>
       </div >
    );
 }
 
 // handleChange es como un manejador que esta vinculado al evento 
 // onChange lo uso para cuando el usuario hace cambios
-//onClick lo uso para cuando el usuario hace click, recordar pasar la funcion como colback para que solo se ejecute cuando el usuario haga click
+//onClick lo uso para cuando el usuario hace click, recordar pasar la funcion como colback para que solo se ejecute cuando el usuario haga

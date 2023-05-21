@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 30px; ; 
+  margin-top: 30px; 
   
   
 }
@@ -19,8 +19,14 @@
 
 .container button{
     background-color: rgb(255, 30, 0) ;
+    font: oblique bold 100% cursive;
     margin-left: 5px;
     border-radius: 5px;
     color: black;
-    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    //box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.container button:hover {
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.5);
+  transition: 0.5;
 }
