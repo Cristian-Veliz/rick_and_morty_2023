@@ -32,11 +32,18 @@ function App() {
 
 
    const onSearch = id =>{
-      axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
+   // Para evitar duplicados
+   const characterId = characters.filter(character => character.id === Number(id));
+   console.log(characterId);
+   if(characterId.length) return alert('¡The character already exists!');
+   if(id < 1 || id > 826) return alert('¡There is no character with the entered ID!'); 
+
+   axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
+         //console.log(data)
          if (data.name) {
             setCharacters((oldChars) => [...oldChars, data]);
          } else {
-            window.alert('¡No hay personajes con este ID!');
+            window.alert('¡There is no character with the entered ID!');
          }
       });
    }
@@ -59,8 +66,8 @@ function App() {
       
       
       <Routes>
-         <Route path='/' element={<Form login={login}/>}/>
-         <Route path='/home'element={<Cards characters={characters} onClose={onClose} />}/>
+         <Route exact path='/' element={<Form login={login}/>}/>
+         <Route path='/home' element={<Cards characters={characters} onClose={onClose} />}/>
          <Route path='/about' element={<About/>}/>
          <Route path='/detail/:id' element={<Detail/>}/>
         

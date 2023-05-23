@@ -54,7 +54,7 @@ const handleSubmit = (event) => {
             <p className={styles.errors}>{errors.password ? errors.password: null}</p>
 
             <hr/>
-            <button className={styles.submit} type='submit'>Submit</button>
+            <button className={styles.submit} type='submit'>LOGIN</button>
                
             
         </form>
