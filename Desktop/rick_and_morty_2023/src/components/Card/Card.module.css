@@ -48,5 +48,16 @@
   text-decoration: none;
 }
 
+.favoritos {
+  display: block;
+  position: fixed;  
+  border: 1px solid black;
+  width: min-content;
+  border: 0.5px solid black;
+  border-radius: 10px;
+  background-color: rgba(26, 214, 120, 0.63);
+  
+   
+}
 
 /* Nota: si comento el relative se cambia a la izquierda el boton de cerrar card  */

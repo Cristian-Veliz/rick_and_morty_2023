@@ -42,7 +42,13 @@
     //transition: 0.5;
   }
 
-  .contenedor label {
+.contenedor label {
     display: block;
     left: 10px;
   }
+
+.contenedor img {
+    height: 150px;
+    width: 400px;
+   
+}

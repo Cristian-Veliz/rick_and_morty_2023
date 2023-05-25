@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import styles from "./Form.module.css"
+import styles from "./Form.module.css";
 import validation from "./validation";
+import Logo from "../image/logo.png";
 
 
 const Form = (props)  => {
@@ -30,11 +31,14 @@ setErrors(validation({
 }
 
 const handleSubmit = (event) => {
-    event.preventDefault(); // para que no recargue toda la pagina
+    event.preventDefault(); // cancela el evento, para que no recargue toda la pagina
     props.login(userData);
 }
     return(
         <div className={styles.contenedor}>
+        <div>
+        <img src={Logo} alt="Logo" />   
+        </div>        
         <form onSubmit={handleSubmit}>
             <label>Email: </label>
             <input 
@@ -54,7 +58,7 @@ const handleSubmit = (event) => {
             <p className={styles.errors}>{errors.password ? errors.password: null}</p>
 
             <hr/>
-            <button className={styles.submit} type='submit'>LOGIN</button>
+            <button className={styles.submit} type='submit'>SUBMIT</button>
                
             
         </form>
