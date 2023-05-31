@@ -1,5 +1,7 @@
 import { connect } from "react-redux";
 import Card from "../card/Card";
+import styles from '../favorites/Favorites.module.css'
+
 
 
 
@@ -11,7 +13,7 @@ const Favorites = ({myFavorites}) => {
 
 
  return(
-    <div>
+    <div className={styles.favorita}>
         
         {
            myFavorites?.map(({ id, name, status, species, gender, origin, image }) => {

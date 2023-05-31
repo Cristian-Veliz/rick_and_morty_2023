@@ -21,4 +21,4 @@ root.render(
 
 
 
-// nota: importamos {BrowserRouter} y envolvemos nuestra app en las etiquetas <BrowserRouter>
+// nota: importamos {BrowserRouter} y envolvemos nuestra app en las etiquetas <BrowserRouter> y <Provider> que tiene mi store.
