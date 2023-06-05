@@ -33,7 +33,7 @@ function App() {
 
 
    const onSearch = id =>{
-   // Para evitar duplicados
+   // Para evitar duplicados se recomienda usar el metodo filter
    const characterId = characters.filter(character => character.id === Number(id));
    console.log(characterId);
    if(characterId.length) return alert('¡The character already exists!');
