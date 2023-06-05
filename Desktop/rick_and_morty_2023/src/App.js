@@ -9,7 +9,7 @@ import Nav from './components/nav/Nav.jsx';
 import Form from './components/form/Form.jsx';
 import Favorites from './components/favorites/Favorites';
 
-
+//revisar bien la importaciones de los componentes y hooks
 
 function App() {
 
