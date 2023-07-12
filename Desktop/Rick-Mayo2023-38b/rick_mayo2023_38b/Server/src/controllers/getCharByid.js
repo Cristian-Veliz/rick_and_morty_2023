@@ -1,29 +1,31 @@
-const axios = require("axios");
+const axios = require('axios')
+const URL = "https://rickandmortyapi.com/api/character/"
 
-const getCharByid = (res, id) => {
-  axios
-    .get(`https://rickandmortyapi.com/api/character/${id}`)
-    .then((response) => response.data) // con axios no es necesario pasar a json
-    .then((data) => {
-        console.log(data)
-      const character = {
-        image: data.image,
-        name: data.name,
+const getCharById = async (req, res) =>{ // async --> una f asincrona
+  try {
+    const {id} = req.params;
+    const {data} = await axios(URL + id) // await simula una pausa y me permite no usar .then para anidar promesas
+    
+    
+    const character = {
+        image: data.image, 
+        name: data.name, 
         species: data.species,
-        gender: data.gender,
-        id: data.id
-      };
-      res
-        .writeHead(200, { "Content-Type": "application/json" })
-        .end(JSON.stringify(character));
-    })
-    .catch((error) =>
-      res
-        .writeHead(500, { "Content-Type": "text/plain" })
-        .end(error.message)
-        //.end(`Personaje con ${id} no encontrado`)
-        //.end({"menssage": "Personaje no encontrado"}) // tb puedo enviar un msj en formato json
-    );
-};
+        gender: data.gender, 
+        id: data.id,
+      }
+      return character 
+      ? res.status(200).json(character)
+      : res.status(404).send('Not found')//no encontrado
+      
+    
+  } catch (error) {
+    res.status(500).send({message: error.message})
+    
+  }
 
-module.exports = getCharByid;
+}
+
+module.exports = {
+  getCharById
+}
